@@ -15,8 +15,11 @@ const images = [
 const ulGalleryEl = document.querySelector('ul.gallery');
 /* console.dir(ulGalleryEl); */
 
-images.forEach(element => {
+/* images.forEach(element => {
   const { url, alt } = element;
+  
+  
+  
   let itemGalleryEl = document.createElement('li');
   itemGalleryEl.classList.add('item');
   ulGalleryEl.append(itemGalleryEl);
@@ -24,6 +27,13 @@ images.forEach(element => {
   itemGalleryEl.append(imgGalleryEl);
   imgGalleryEl.src = url;
   imgGalleryEl.alt = alt;
-});
+}); */
 /* console.dir(ulGalleryEl);
 console.log(ulGalleryEl); */
+
+let arrayImg = [];
+arrayImg = images.map(({ url, alt }) => `<li class="item">
+  <img class="img-item" src=${url} alt=${alt}>
+  </li>`).join("");
+console.log(arrayImg);
+ulGalleryEl.insertAdjacentHTML("beforeend", arrayImg);
